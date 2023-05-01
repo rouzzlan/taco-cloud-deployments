@@ -6,7 +6,7 @@ services:
     environment:
       - POSTGRES_USER=rouslan
       - POSTGRES_PASSWORD=50m9FiD3
-      - POSTGRES_DB=polardb_order
+      - POSTGRES_DB=orders
     ports:
       - '54321:5432'
     volumes:
