@@ -1,16 +1,17 @@
-version: '3.9'
+version: '3.8'
 services:
-  polar-catalog-db:
-    image: postgres:15.2
-    restart: always
-    environment:
-      - POSTGRES_USER=rouslan
-      - POSTGRES_PASSWORD=50m9FiD3
-      - POSTGRES_DB=orders
+  mongo:
     ports:
-      - '54321:5432'
+      - '27020:27017'
+    container_name: address-service-mongo
+    restart: always
+    logging:
+      options:
+        max-size: 1g
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rouslan
+      - MONGO_INITDB_ROOT_PASSWORD=50m9FiD3
+      - MONGO_INITDB_DATABASE=OrderDB
+    image: mongo
     volumes:
-      - polar-order-db:/var/lib/postgresql/data
-volumes:
-  polar-order-db:
-    driver: local
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
