@@ -1,8 +1,6 @@
 version: '3.8'
 services:
   cc-service:
-    ports:
-      - '9002:9002'
     container_name: cc-service
     restart: always
     logging:
@@ -16,9 +14,8 @@ services:
     image: harbour.739.net/taco-cloud/cc-service-service:0.0.1
     networks:
       - taco-testnet-ccdb
+      - taco-testnet
   address-service:
-    ports:
-      - '9001:9001'
     container_name: address-service
     restart: always
     logging:
@@ -32,6 +29,7 @@ services:
     image: harbour.739.net/taco-cloud/address-service:0.0.2
     networks:
       - taco-testnet-addrdb
+      - taco-testnet
   order-service:
     ports:
       - '9004:9004'
@@ -58,7 +56,7 @@ services:
       - QHOST=order-rabbitmq
     image: harbour.739.net/taco-cloud/order-sender:0.0.1-SNAPSHOT
     networks:
-      - taco-testnet
+      - taco-testnet-order-queue
   order-receiver-service:
     container_name: order-receiver-service
     restart: always
@@ -67,13 +65,17 @@ services:
         max-size: 1g
     environment:
       - DB_HOST=order-service-db
+      - DB_PORT=27017
       - QHOST=order-rabbitmq
       - ADDR_HOST=http://address-service:9001/address
       - CC_HOST=http://cc-service:9002/creditcard
     image: harbour.739.net/taco-cloud/order-receiver:0.0.1-SNAPSHOT
     networks:
       - taco-testnet
+      - taco-testnet-order-queue
 networks:
+  taco-testnet-order-queue:
+    external: true
   taco-testnet-ccdb:
     external: true
   taco-testnet-addrdb:

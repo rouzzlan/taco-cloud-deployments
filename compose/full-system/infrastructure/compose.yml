@@ -18,7 +18,7 @@ services:
   order-rabbitmq:
     image: rabbitmq:management
     networks:
-      - taco-testnet
+      - taco-testnet-order-queue
     container_name: order-rabbitmq
     restart: always
     ports:
@@ -65,6 +65,8 @@ services:
     volumes:
       - ./address-service-mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 networks:
+  taco-testnet-order-queue:
+    external: true
   taco-testnet-ccdb:
     external: true
   taco-testnet-addrdb:
