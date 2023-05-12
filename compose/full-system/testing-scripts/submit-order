@@ -1,0 +1,5 @@
+#!/bin/bash
+
+curl -X POST http://localhost:9003/order/ \
+  -H 'Content-Type: application/json' \
+  -d '{"name":"myOrder","email":"me@home.com","address":{"street":"Kerkstraat 123","city":"Hoboken","zip":"1929","state":"Antwerp"},"cCard":{"ccNumber":"5364965554644555","ccExpiration":"10/10","cvv":999}}'
