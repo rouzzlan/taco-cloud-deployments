@@ -25,7 +25,10 @@ services:
       options:
         max-size: 1g
     environment:
-      - DB_URL=address-service-mongodb
+      - DB_URL=mongodb://address-service-mongodb:27018
+      - DATABASE=addressdb
+      - PASSWD=50m9FiD3
+      - USER=rouslan
     image: harbour.739.net/taco-cloud/address-service:0.0.2
     networks:
       - taco-testnet
