@@ -65,9 +65,9 @@ services:
     volumes:
       - ./address-service-mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 networks:
-  bridge taco-testnet-ccdb:
+  taco-testnet-ccdb:
     external: true
-  bridge taco-testnet-addr:
+  taco-testnet-addr:
     external: true
   taco-testnet-orderdb:
     external: true
