@@ -69,5 +69,7 @@ services:
     volumes:
       - ./address-service-mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 networks:
+  taco-testnet-orderdb:
+    external: true
   taco-testnet:
     external: true
