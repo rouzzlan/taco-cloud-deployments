@@ -1,0 +1,3 @@
+To start specific service
+
+docker-compose up order-service

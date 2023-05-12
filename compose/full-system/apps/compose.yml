@@ -26,6 +26,46 @@ services:
     image: harbour.739.net/taco-cloud/address-service:0.0.2
     networks:
       - taco-testnet
+  order-service:
+    ports:
+      - '9004:9004'
+    container_name: order-service
+    restart: always
+    logging:
+      options:
+        max-size: 1g
+    environment:
+      - DB_HOST=order-service-db
+    image: harbour.739.net/taco-cloud/taco-order-service:0.0.1-SNAPSHOT
+    networks:
+      - taco-testnet
+  order-sender-service:
+    ports:
+      - '9003:9003'
+    container_name: order-sender-service
+    restart: always
+    logging:
+      options:
+        max-size: 1g
+    environment:
+      - QHOST=order-rabbitmq
+    image: harbour.739.net/taco-cloud/order-sender:0.0.1-SNAPSHOT
+    networks:
+      - taco-testnet
+  order-receiver-service:
+    container_name: order-receiver-service
+    restart: always
+    logging:
+      options:
+        max-size: 1g
+    environment:
+      - DB_HOST=order-service-db
+      - QHOST=order-rabbitmq
+      - ADDR_HOST=http://address-service:9001/address
+      - CC_HOST=http://cc-service:9002/creditcard
+    image: harbour.739.net/taco-cloud/order-receiver:0.0.1-SNAPSHOT
+    networks:
+      - taco-testnet
 networks:
   taco-testnet:
     external: true
