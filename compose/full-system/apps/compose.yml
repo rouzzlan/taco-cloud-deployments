@@ -15,7 +15,7 @@ services:
       - USER=rouslan
     image: harbour.739.net/taco-cloud/cc-service-service:0.0.1
     networks:
-      - bridge taco-testnet-ccdb
+      - taco-testnet-ccdb
   address-service:
     ports:
       - '9001:9001'
@@ -31,7 +31,7 @@ services:
       - USER=rouslan
     image: harbour.739.net/taco-cloud/address-service:0.0.2
     networks:
-      - taco-testnet
+      - taco-testnet-addr
   order-service:
     ports:
       - '9004:9004'
