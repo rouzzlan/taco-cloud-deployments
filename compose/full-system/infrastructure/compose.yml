@@ -1,11 +1,7 @@
 version: '3.8'
 services:
   order-service-db:
-    ports:
-      - '27020:27020'
     container_name: order-service-db
-    command:
-      - mongod --port 27020
     restart: always
     logging:
       options:
@@ -16,7 +12,7 @@ services:
       - MONGO_INITDB_DATABASE=OrderDB
     image: mongo
     networks:
-      - taco-testnet
+      - taco-testnet-orderdb
     volumes:
       - ./order-service-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   order-rabbitmq:

@@ -1,3 +1,4 @@
 #!/bin/bash
 
 docker network create taco-testnet
+docker network create taco-testnet-orderdb

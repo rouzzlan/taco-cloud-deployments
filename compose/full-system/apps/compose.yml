@@ -44,7 +44,7 @@ services:
       - DB_HOST=order-service-db
     image: harbour.739.net/taco-cloud/taco-order-service:0.0.1-SNAPSHOT
     networks:
-      - taco-testnet
+      - taco-testnet-orderdb
   order-sender-service:
     ports:
       - '9003:9003'
