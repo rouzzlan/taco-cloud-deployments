@@ -3,7 +3,7 @@ services:
   order-service-db:
     ports:
       - '27020:27017'
-    container_name: order-service-mongo
+    container_name: order-service-db
     restart: always
     logging:
       options:
@@ -13,11 +13,15 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=50m9FiD3
       - MONGO_INITDB_DATABASE=OrderDB
     image: mongo
+    networks:
+      - taco-testnet
     volumes:
       - ./order-service-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   order-rabbitmq:
     image: rabbitmq:management
-    container_name: rabbitmq
+    networks:
+      - taco-testnet
+    container_name: order-rabbitmq
     restart: always
     ports:
       - "5673:5672"
@@ -35,7 +39,7 @@ services:
   cc-service-mongodb:
     ports:
       - '27019:27017'
-    container_name: cc-service-mongo
+    container_name: cc-service-mongodb
     restart: always
     logging:
       options:
@@ -45,6 +49,8 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=50m9FiD3
       - MONGO_INITDB_DATABASE=CCServiceDB
     image: mongo
+    networks:
+      - taco-testnet
     volumes:
       - ./cc-service-mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   address-service-mongodb:
@@ -60,5 +66,10 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=50m9FiD3
       - MONGO_INITDB_DATABASE=addressdb
     image: mongo
+    networks:
+      - taco-testnet
     volumes:
       - ./address-service-mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+networks:
+  taco-testnet:
+    external: true
