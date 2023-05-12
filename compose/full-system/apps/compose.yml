@@ -9,7 +9,10 @@ services:
       options:
         max-size: 1g
     environment:
-      - DB_URL=cc-service-mongodb
+      - DB_URL=mongodb://cc-service-mongodb:27019
+      - DATABASE=CCServiceDB
+      - PASSWD=50m9FiD3
+      - USER=rouslan
     image: harbour.739.net/taco-cloud/cc-service-service:0.0.1
     networks:
       - taco-testnet
