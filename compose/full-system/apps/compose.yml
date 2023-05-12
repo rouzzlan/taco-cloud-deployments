@@ -75,6 +75,7 @@ services:
     networks:
       - taco-testnet
       - taco-testnet-order-queue
+      - taco-testnet-orderdb
 networks:
   taco-testnet-order-queue:
     external: true
