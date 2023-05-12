@@ -54,6 +54,7 @@ services:
         max-size: 1g
     environment:
       - QHOST=order-rabbitmq
+      - QPORT=5672
     image: harbour.739.net/taco-cloud/order-sender:0.0.1-SNAPSHOT
     networks:
       - taco-testnet-order-queue
@@ -67,6 +68,7 @@ services:
       - DB_HOST=order-service-db
       - DB_PORT=27017
       - QHOST=order-rabbitmq
+      - QPORT=5672
       - ADDR_HOST=http://address-service:9001/address
       - CC_HOST=http://cc-service:9002/creditcard
     image: harbour.739.net/taco-cloud/order-receiver:0.0.1-SNAPSHOT
