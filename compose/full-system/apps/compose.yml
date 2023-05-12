@@ -74,5 +74,7 @@ services:
     networks:
       - taco-testnet
 networks:
+  taco-testnet-orderdb:
+    external: true
   taco-testnet:
     external: true
