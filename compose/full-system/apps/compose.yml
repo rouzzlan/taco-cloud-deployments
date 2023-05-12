@@ -31,7 +31,7 @@ services:
       - USER=rouslan
     image: harbour.739.net/taco-cloud/address-service:0.0.2
     networks:
-      - taco-testnet-addr
+      - taco-testnet-addrdb
   order-service:
     ports:
       - '9004:9004'
@@ -76,7 +76,7 @@ services:
 networks:
   taco-testnet-ccdb:
     external: true
-  taco-testnet-addr:
+  taco-testnet-addrdb:
     external: true
   taco-testnet-orderdb:
     external: true

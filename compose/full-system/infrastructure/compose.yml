@@ -61,13 +61,13 @@ services:
       - MONGO_INITDB_DATABASE=addressdb
     image: mongo
     networks:
-      - taco-testnet-addr
+      - taco-testnet-addrdb
     volumes:
       - ./address-service-mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 networks:
   taco-testnet-ccdb:
     external: true
-  taco-testnet-addr:
+  taco-testnet-addrdb:
     external: true
   taco-testnet-orderdb:
     external: true
