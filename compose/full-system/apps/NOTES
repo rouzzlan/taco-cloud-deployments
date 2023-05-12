@@ -4,4 +4,5 @@ To start specific service
 
 to check the connected containers on network
 
-    docker inspect order-service-db
+    docker inspect taco-testnet-orderdb
+
