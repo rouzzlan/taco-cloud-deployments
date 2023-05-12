@@ -1,3 +1,7 @@
 To start specific service
 
-docker-compose up order-service
+    docker-compose up order-service
+
+to check the connected containers on network
+
+    docker inspect order-service-db
