@@ -56,7 +56,7 @@ services:
   address-service-mongodb:
     ports:
       - '27018:27017'
-    container_name: address-service-mongo
+    container_name: address-service-mongodb
     restart: always
     logging:
       options:

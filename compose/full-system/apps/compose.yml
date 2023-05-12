@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  cc-service:
+    ports:
+      - '9002:9002'
+    container_name: cc-service
+    restart: always
+    logging:
+      options:
+        max-size: 1g
+    environment:
+      - DB_URL=cc-service-mongodb
+    image: harbour.739.net/taco-cloud/cc-service-service:0.0.1
+    networks:
+      - taco-testnet
+  address-service:
+    ports:
+      - '9001:9001'
+    container_name: address-service
+    restart: always
+    logging:
+      options:
+        max-size: 1g
+    environment:
+      - DB_URL=address-service-mongodb
+    image: harbour.739.net/taco-cloud/address-service:0.0.2
+    networks:
+      - taco-testnet
+networks:
+  taco-testnet:
+    external: true
