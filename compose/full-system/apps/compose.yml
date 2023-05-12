@@ -42,6 +42,7 @@ services:
         max-size: 1g
     environment:
       - DB_HOST=order-service-db
+      - DB_PORT=27017
     image: harbour.739.net/taco-cloud/taco-order-service:0.0.1-SNAPSHOT
     networks:
       - taco-testnet-orderdb
