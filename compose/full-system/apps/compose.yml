@@ -9,13 +9,13 @@ services:
       options:
         max-size: 1g
     environment:
-      - DB_URL=mongodb://cc-service-mongodb:27019
+      - DB_URL=mongodb://cc-service-mongodb:27017
       - DATABASE=CCServiceDB
       - PASSWD=50m9FiD3
       - USER=rouslan
     image: harbour.739.net/taco-cloud/cc-service-service:0.0.1
     networks:
-      - taco-testnet
+      - bridge taco-testnet-ccdb
   address-service:
     ports:
       - '9001:9001'
@@ -25,7 +25,7 @@ services:
       options:
         max-size: 1g
     environment:
-      - DB_URL=mongodb://address-service-mongodb:27018
+      - DB_URL=mongodb://address-service-mongodb:27017
       - DATABASE=addressdb
       - PASSWD=50m9FiD3
       - USER=rouslan
@@ -74,6 +74,10 @@ services:
     networks:
       - taco-testnet
 networks:
+  bridge taco-testnet-ccdb:
+    external: true
+  bridge taco-testnet-addr:
+    external: true
   taco-testnet-orderdb:
     external: true
   taco-testnet:
