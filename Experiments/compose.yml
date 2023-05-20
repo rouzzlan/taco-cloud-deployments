@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  mongo:
+    ports:
+      - '27030:27030'
+    container_name: order-service-mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rouslan
+      - MONGO_INITDB_ROOT_PASSWORD=50m9FiD3
+      - MONGO_INITDB_DATABASE=OrderDB
+    image: mongo
+    command: ["mongod", "--port", "27030"]
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
