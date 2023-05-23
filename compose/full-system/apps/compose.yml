@@ -2,7 +2,6 @@ version: '3.8'
 services:
   cc-service:
     container_name: cc-service
-    restart: always
     logging:
       options:
         max-size: 50m
@@ -16,7 +15,6 @@ services:
       - taco-testnet
   address-service:
     container_name: address-service
-    restart: always
     logging:
       options:
         max-size: 1g
@@ -32,7 +30,6 @@ services:
     ports:
       - '9004:9004'
     container_name: order-service
-    restart: always
     logging:
       options:
         max-size: 50m
@@ -46,7 +43,6 @@ services:
     ports:
       - '9003:9003'
     container_name: order-sender-service
-    restart: always
     logging:
       options:
         max-size: 50m
@@ -58,7 +54,6 @@ services:
       - taco-testnet
   order-receiver-service:
     container_name: order-receiver-service
-    restart: always
     logging:
       options:
         max-size: 50m
