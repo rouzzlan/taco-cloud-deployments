@@ -18,6 +18,7 @@ services:
       - taco-testnet
     volumes:
       - ./order-service-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - order-service-mongodb-volume:/data/db
   order-rabbitmq:
     image: rabbitmq:management
     networks:
@@ -55,6 +56,7 @@ services:
       - taco-testnet
     volumes:
       - ./cc-service-mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - cc-service-mongodb-volume:/data/db
   address-service-mongodb:
     container_name: address-service-mongodb
     restart: unless-stopped
@@ -73,6 +75,11 @@ services:
       - taco-testnet
     volumes:
       - ./address-service-mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - address-service-mongodb-volume:/data/db
 networks:
   taco-testnet:
     external: true
+volumes:
+  order-service-mongodb-volume:
+  address-service-mongodb-volume:
+  cc-service-mongodb-volume:
