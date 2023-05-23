@@ -1,7 +1,3 @@
 #!/bin/bash
 
 docker network create -d bridge taco-testnet
-docker network create -d bridge taco-testnet-order-queue
-docker network create -d bridge taco-testnet-addrdb
-docker network create -d bridge taco-testnet-ccdb
-docker network create -d bridge taco-testnet-orderdb

@@ -1,26 +1,27 @@
 version: '3.8'
 services:
-  order-service-db:
-    container_name: order-service-db
-    restart: always
+  order-service-mongodb:
+    container_name: order-service-mongodb
+    restart: unless-stopped
+    command: [ "mongod", "--port", "27020" ]
     logging:
       options:
-        max-size: 1g
+        max-size: 50m
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rouslan
       - MONGO_INITDB_ROOT_PASSWORD=50m9FiD3
       - MONGO_INITDB_DATABASE=OrderDB
     image: mongo
     networks:
-      - taco-testnet-orderdb
+      - taco-testnet
     volumes:
       - ./order-service-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   order-rabbitmq:
     image: rabbitmq:management
     networks:
-      - taco-testnet-order-queue
+      - taco-testnet
     container_name: order-rabbitmq
-    restart: always
+    restart: unless-stopped
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -36,42 +37,36 @@ services:
         target: /etc/rabbitmq/definitions.json
   cc-service-mongodb:
     container_name: cc-service-mongodb
-    restart: always
+    restart: unless-stopped
+    command: [ "mongod", "--port", "27019" ]
     logging:
       options:
-        max-size: 1g
+        max-size: 50m
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rouslan
       - MONGO_INITDB_ROOT_PASSWORD=50m9FiD3
       - MONGO_INITDB_DATABASE=CCServiceDB
     image: mongo
     networks:
-      - taco-testnet-ccdb
+      - taco-testnet
     volumes:
       - ./cc-service-mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   address-service-mongodb:
     container_name: address-service-mongodb
-    restart: always
+    restart: unless-stopped
+    command: [ "mongod", "--port", "27018" ]
     logging:
       options:
-        max-size: 1g
+        max-size: 50m
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rouslan
       - MONGO_INITDB_ROOT_PASSWORD=50m9FiD3
       - MONGO_INITDB_DATABASE=addressdb
     image: mongo
     networks:
-      - taco-testnet-addrdb
+      - taco-testnet
     volumes:
       - ./address-service-mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 networks:
-  taco-testnet-order-queue:
-    external: true
-  taco-testnet-ccdb:
-    external: true
-  taco-testnet-addrdb:
-    external: true
-  taco-testnet-orderdb:
-    external: true
   taco-testnet:
     external: true

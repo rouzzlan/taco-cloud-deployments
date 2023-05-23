@@ -5,15 +5,14 @@ services:
     restart: always
     logging:
       options:
-        max-size: 1g
+        max-size: 50m
     environment:
-      - DB_URL=mongodb://cc-service-mongodb:27017
+      - DB_URL=mongodb://cc-service-mongodb:27019
       - DATABASE=CCServiceDB
       - PASSWD=50m9FiD3
       - USER=rouslan
     image: harbour.739.net/taco-cloud/cc-service-service:0.0.1
     networks:
-      - taco-testnet-ccdb
       - taco-testnet
   address-service:
     container_name: address-service
@@ -22,13 +21,12 @@ services:
       options:
         max-size: 1g
     environment:
-      - DB_URL=mongodb://address-service-mongodb:27017
+      - DB_URL=mongodb://address-service-mongodb:27018
       - DATABASE=addressdb
       - PASSWD=50m9FiD3
       - USER=rouslan
     image: harbour.739.net/taco-cloud/address-service:0.0.2
     networks:
-      - taco-testnet-addrdb
       - taco-testnet
   order-service:
     ports:
@@ -37,13 +35,13 @@ services:
     restart: always
     logging:
       options:
-        max-size: 1g
+        max-size: 50m
     environment:
-      - DB_HOST=order-service-db
-      - DB_PORT=27017
+      - DB_HOST=order-service-mongodb
+      - DB_PORT=27020
     image: harbour.739.net/taco-cloud/taco-order-service:0.0.1-SNAPSHOT
     networks:
-      - taco-testnet-orderdb
+      - taco-testnet
   order-sender-service:
     ports:
       - '9003:9003'
@@ -51,22 +49,22 @@ services:
     restart: always
     logging:
       options:
-        max-size: 1g
+        max-size: 50m
     environment:
       - QHOST=order-rabbitmq
       - QPORT=5672
     image: harbour.739.net/taco-cloud/order-sender:0.0.1-SNAPSHOT
     networks:
-      - taco-testnet-order-queue
+      - taco-testnet
   order-receiver-service:
     container_name: order-receiver-service
     restart: always
     logging:
       options:
-        max-size: 1g
+        max-size: 50m
     environment:
-      - DB_HOST=order-service-db
-      - DB_PORT=27017
+      - DB_HOST=order-service-mongodb
+      - DB_PORT=27020
       - QHOST=order-rabbitmq
       - QPORT=5672
       - ADDR_HOST=http://address-service:9001/address
@@ -74,16 +72,6 @@ services:
     image: harbour.739.net/taco-cloud/order-receiver:0.0.1-SNAPSHOT
     networks:
       - taco-testnet
-      - taco-testnet-order-queue
-      - taco-testnet-orderdb
 networks:
-  taco-testnet-order-queue:
-    external: true
-  taco-testnet-ccdb:
-    external: true
-  taco-testnet-addrdb:
-    external: true
-  taco-testnet-orderdb:
-    external: true
   taco-testnet:
     external: true
