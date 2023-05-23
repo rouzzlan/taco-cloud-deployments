@@ -4,6 +4,8 @@ services:
     container_name: order-service-mongodb
     restart: unless-stopped
     command: [ "mongod", "--port", "27020" ]
+    ports:
+      - "27020:27020"
     logging:
       options:
         max-size: 50m
@@ -39,6 +41,8 @@ services:
     container_name: cc-service-mongodb
     restart: unless-stopped
     command: [ "mongod", "--port", "27019" ]
+    ports:
+      - "27019:27019"
     logging:
       options:
         max-size: 50m
@@ -55,6 +59,8 @@ services:
     container_name: address-service-mongodb
     restart: unless-stopped
     command: [ "mongod", "--port", "27018" ]
+    ports:
+      - "27018:27018"
     logging:
       options:
         max-size: 50m
