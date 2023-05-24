@@ -2,6 +2,8 @@ version: '3.8'
 services:
   cc-service:
     container_name: cc-service
+    ports:
+      - '9002:9002'
     logging:
       options:
         max-size: 50m
@@ -10,11 +12,13 @@ services:
       - DATABASE=CCServiceDB
       - PASSWD=50m9FiD3
       - USER=rouslan
-    image: harbour.739.net/taco-cloud/cc-service-service:0.0.1
+    image: harbour.739.net/taco-cloud/cc-service-service:0.0.3
     networks:
       - taco-testnet
   address-service:
     container_name: address-service
+    ports:
+      - '9001:9001'
     logging:
       options:
         max-size: 1g
@@ -23,20 +27,20 @@ services:
       - DATABASE=addressdb
       - PASSWD=50m9FiD3
       - USER=rouslan
-    image: harbour.739.net/taco-cloud/address-service:0.0.2
+    image: harbour.739.net/taco-cloud/address-service:0.0.3
     networks:
       - taco-testnet
   order-service:
+    container_name: order-service
     ports:
       - '9004:9004'
-    container_name: order-service
     logging:
       options:
         max-size: 50m
     environment:
       - DB_HOST=order-service-mongodb
       - DB_PORT=27020
-    image: harbour.739.net/taco-cloud/taco-order-service:0.0.1-SNAPSHOT
+    image: harbour.739.net/taco-cloud/taco-order-service:0.0.3
     networks:
       - taco-testnet
   order-sender-service:
@@ -49,7 +53,7 @@ services:
     environment:
       - QHOST=order-rabbitmq
       - QPORT=5672
-    image: harbour.739.net/taco-cloud/order-sender:0.0.1-SNAPSHOT
+    image: harbour.739.net/taco-cloud/order-sender:0.0.3
     networks:
       - taco-testnet
   order-receiver-service:
