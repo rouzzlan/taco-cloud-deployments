@@ -68,7 +68,7 @@ services:
       - QPORT=5672
       - ADDR_HOST=http://address-service:9001/address
       - CC_HOST=http://cc-service:9002/creditcard
-    image: harbour.739.net/taco-cloud/order-receiver:0.0.1-SNAPSHOT
+    image: harbour.739.net/taco-cloud/order-receiver:0.0.3
     networks:
       - taco-testnet
 networks:
