@@ -2,6 +2,7 @@ version: '3.8'
 services:
   cc-service:
     container_name: cc-service
+    image: harbour.739.net/taco-cloud/cc-service-service:0.0.3
     ports:
       - '9002:9002'
     logging:
@@ -12,11 +13,11 @@ services:
       - DATABASE=CCServiceDB
       - PASSWD=50m9FiD3
       - USER=rouslan
-    image: harbour.739.net/taco-cloud/cc-service-service:0.0.3
     networks:
       - taco-testnet
   address-service:
     container_name: address-service
+    image: harbour.739.net/taco-cloud/address-service:0.0.3
     ports:
       - '9001:9001'
     logging:
@@ -27,11 +28,11 @@ services:
       - DATABASE=addressdb
       - PASSWD=50m9FiD3
       - USER=rouslan
-    image: harbour.739.net/taco-cloud/address-service:0.0.3
     networks:
       - taco-testnet
   order-service:
     container_name: order-service
+    image: harbour.739.net/taco-cloud/taco-order-service:0.0.3
     ports:
       - '9004:9004'
     logging:
@@ -40,24 +41,24 @@ services:
     environment:
       - DB_HOST=order-service-mongodb
       - DB_PORT=27020
-    image: harbour.739.net/taco-cloud/taco-order-service:0.0.3
     networks:
       - taco-testnet
   order-sender-service:
+    container_name: order-sender-service
+    image: harbour.739.net/taco-cloud/order-sender:0.0.3
     ports:
       - '9003:9003'
-    container_name: order-sender-service
     logging:
       options:
         max-size: 50m
     environment:
       - QHOST=order-rabbitmq
       - QPORT=5672
-    image: harbour.739.net/taco-cloud/order-sender:0.0.3
     networks:
       - taco-testnet
   order-receiver-service:
     container_name: order-receiver-service
+    image: harbour.739.net/taco-cloud/order-receiver:0.0.3
     logging:
       options:
         max-size: 50m
@@ -68,7 +69,32 @@ services:
       - QPORT=5672
       - ADDR_HOST=http://address-service:9001/address
       - CC_HOST=http://cc-service:9002/creditcard
-    image: harbour.739.net/taco-cloud/order-receiver:0.0.3
+    networks:
+      - taco-testnet
+  delivery-management-service:
+    container_name: delivery-management-service
+    image: harbour.739.net/taco-cloud/delivery-management-service:0.0.3
+    ports:
+      - '9006:9006'
+    logging:
+      options:
+        max-size: 50m
+    environment:
+      - ADR_URL=http://address-service:9001
+      - ORDER_URL=http://order-service:9004
+    networks:
+      - taco-testnet
+  payment-management-service:
+    container_name: payment-management-service
+    image: harbour.739.net/taco-cloud/payment-management-service:0.0.3
+    ports:
+      - '9005:9005'
+    logging:
+      options:
+        max-size: 50m
+    environment:
+      - CC_URL=http://cc-service:9002
+      - ORDER_URL=http://order-service:9004
     networks:
       - taco-testnet
 networks:
