@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ORDER_ID=645949a4af1e473c6522246c
+ORDER_ID=646e96ac7f9f0f50cbaa7fb2
 curl http://localhost:9004/order/$ORDER_ID
