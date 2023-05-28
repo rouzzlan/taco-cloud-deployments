@@ -86,7 +86,7 @@ services:
       - taco-testnet
   payment-management-service:
     container_name: payment-management-service
-    image: harbour.739.net/taco-cloud/payment-management-service:0.0.3
+    image: harbour.739.net/taco-cloud/payment-management-service:0.0.3-1
     ports:
       - '9005:9005'
     logging:
