@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if test -z "$TACO_ORDER_ID"; then
-  echo "\TACO_ORDER_ID is empty"
+  echo "\$TACO_ORDER_ID is empty"
 else
   curl http://localhost:9006/api/order/"${TACO_ORDER_ID}"
 fi
