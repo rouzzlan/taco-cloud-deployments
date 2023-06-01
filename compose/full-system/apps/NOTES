@@ -1,3 +1,7 @@
+for ui edit /etc/hosts add line
+    0.0.0.0		submit-taco-order-service taco-order-service taco-order-service-ui
+
+
 To start specific service
 
     docker-compose up order-service
