@@ -97,6 +97,16 @@ services:
       - ORDER_URL=http://order-service:9004
     networks:
       - taco-testnet
+  ui-order:
+    container_name: ui-order
+    image: harbour.739.net/taco-cloud/ui-order:0.0.3-1
+    ports:
+      - '80:80'
+    logging:
+      options:
+        max-size: 50m
+    networks:
+      - taco-testnet
 networks:
   taco-testnet:
     external: true
