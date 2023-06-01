@@ -32,7 +32,7 @@ services:
       - taco-testnet
   order-service:
     container_name: order-service
-    image: harbour.739.net/taco-cloud/taco-order-service:0.0.3
+    image: harbour.739.net/taco-cloud/taco-order-service:0.0.3-1
     ports:
       - '9004:9004'
     logging:
@@ -45,7 +45,7 @@ services:
       - taco-testnet
   order-sender-service:
     container_name: order-sender-service
-    image: harbour.739.net/taco-cloud/order-sender:0.0.3
+    image: harbour.739.net/taco-cloud/order-sender:0.0.3-1
     ports:
       - '9003:9003'
     logging:
