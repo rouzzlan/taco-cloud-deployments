@@ -73,7 +73,7 @@ services:
       - taco-testnet
   delivery-management-service:
     container_name: delivery-management-service
-    image: harbour.739.net/taco-cloud/delivery-management-service:0.0.3
+    image: harbour.739.net/taco-cloud/delivery-management-service:0.0.3-1
     ports:
       - '9006:9006'
     logging:
@@ -82,6 +82,7 @@ services:
     environment:
       - ADR_URL=http://address-service:9001
       - ORDER_URL=http://order-service:9004
+      - QUARKUS_HTTP_CORS_ORIGIN=*
     networks:
       - taco-testnet
   payment-management-service:
@@ -105,8 +106,14 @@ services:
     logging:
       options:
         max-size: 50m
-    networks:
-      - taco-testnet
+  ui-delivery:
+    container_name: ui-delivery
+    image: harbour.739.net/taco-cloud/ui-delivery:0.0.3
+    ports:
+      - '81:80'
+    logging:
+      options:
+        max-size: 50m
 networks:
   taco-testnet:
     external: true
