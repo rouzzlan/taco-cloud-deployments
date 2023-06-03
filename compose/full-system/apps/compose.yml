@@ -106,6 +106,8 @@ services:
     logging:
       options:
         max-size: 50m
+    networks:
+      - taco-testnet
   ui-delivery:
     container_name: ui-delivery
     image: harbour.739.net/taco-cloud/ui-delivery:0.0.3
@@ -114,6 +116,8 @@ services:
     logging:
       options:
         max-size: 50m
+    networks:
+      - taco-testnet
 networks:
   taco-testnet:
     external: true
