@@ -96,6 +96,7 @@ services:
     environment:
       - CC_URL=http://cc-service:9002
       - ORDER_URL=http://order-service:9004
+      - QUARKUS_HTTP_CORS_ORIGIN=*
     networks:
       - taco-testnet
   ui-order:
@@ -109,6 +110,14 @@ services:
   ui-delivery:
     container_name: ui-delivery
     image: harbour.739.net/taco-cloud/ui-delivery:0.0.3
+    ports:
+      - '81:80'
+    logging:
+      options:
+        max-size: 50m
+  ui-payment:
+    container_name: ui-payment
+    image: harbour.739.net/taco-cloud/ui-payment:0.0.3
     ports:
       - '81:80'
     logging:
