@@ -119,7 +119,7 @@ services:
     container_name: ui-payment
     image: harbour.739.net/taco-cloud/ui-payment:0.0.3
     ports:
-      - '81:80'
+      - '82:80'
     logging:
       options:
         max-size: 50m
