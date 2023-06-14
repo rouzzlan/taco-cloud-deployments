@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: polar-db-config
+data:
+  DB_URL: "jdbc:postgresql://catalog-db:54320/polardb_catalog"

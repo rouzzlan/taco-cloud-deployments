@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-address-service
+data:
+  DB_URL: "mongodb://docker-pool:27018"
+  DATABASE: "addressdb"
+  PASSWD: "50m9FiD3"
+  USER: "rouslan"

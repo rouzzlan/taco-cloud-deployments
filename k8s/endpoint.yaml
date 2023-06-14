@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-pool
+spec:
+  externalName: docker-pool.739.net
+  type: ExternalName
