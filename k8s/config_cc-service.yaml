@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-cc-service
+data:
+  DB_URL: "mongodb://docker-pool:27019"
+  DATABASE: "CCServiceDB"
+  PASSWD: "50m9FiD3"
+  USER: "rouslan"
