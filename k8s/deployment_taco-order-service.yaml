@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taco-order-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: taco-order-service
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: taco-order-service
+    spec:
+      containers:
+        - name: taco-order-service
+          image: harbour.739.net/taco-cloud/taco-order-service:0.0.3-1
+          envFrom:
+            - configMapRef:
+                name: config-taco-order-service
+          ports:
+            - containerPort: 9004
