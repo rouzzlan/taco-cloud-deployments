@@ -60,3 +60,9 @@ output
 ```json lines
 {"id":"646e5921ba3cd06728e327f3","uuid":"83decfbc-4673-47f3-ba32-8c00bbbb0698","name":"myOrder","email":"me@home.com","addrRef":"755241ea8bb0d609107a640673292264ca451e550dd39dd5c9bbb86ec8a5895f","ccardRef":"90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285"}
 ```
+
+## Payment management service
+
+```sh
+curl http://k8s-a-master-node.739.net:32015/api/order/646e5921ba3cd06728e327f3
+```

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-management-service
+  labels:
+    app: payment-management-service
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 32015
+      port: 9005
+      protocol: TCP
+      targetPort: 9005
+  selector:
+    app: payment-management-service

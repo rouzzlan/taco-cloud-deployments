@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-payment-management-service
+data:
+  CC_URL: "http://cc-service:9002"
+  ORDER_URL: "http://taco-order-service:9004"
+  QUARKUS_HTTP_CORS_ORIGIN: "*"
