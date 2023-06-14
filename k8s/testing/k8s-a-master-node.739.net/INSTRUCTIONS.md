@@ -63,6 +63,18 @@ output
 
 ## Payment management service
 
+the endpoint manifest [endpoint.yaml](../../endpoint.yaml) should be already be deployed</br>
+deployment manifest files
+
+- [config_payment-management-service.yaml](../../config_payment-management-service.yaml)
+- [deployment_payment-management-service.yaml](../../deployment_payment-management-service.yaml)
+- [service_payment-management-service.yaml](../../service_payment-management-service.yaml)
+
+#### get order by id
 ```sh
 curl http://k8s-a-master-node.739.net:32015/api/order/646e5921ba3cd06728e327f3
+```
+output
+```json lines
+{"creditCard":{"number":"5364965554644555","expiration":"10/10","cvv":999,"owner":"Rouslan Khayaouri","hash":"90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285"},"order":{"id":"646e5921ba3cd06728e327f3","uuid":"83decfbc-4673-47f3-ba32-8c00bbbb0698","name":"myOrder","email":"me@home.com","ccardRef":"90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285","addrRef":"755241ea8bb0d609107a640673292264ca451e550dd39dd5c9bbb86ec8a5895f"}}
 ```
