@@ -29,3 +29,7 @@ deployment manifest files
 ```sh
 curl http://k8s-a-master-node.739.net:32011/creditcard/90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285
 ```
+output
+```json lines
+{"cvv":999,"expiration":"10/10","hash":"90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285","number":"5364965554644555","owner":"Rouslan Khayaouri"}
+```
