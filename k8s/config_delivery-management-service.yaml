@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-delivery-management-service
+data:
+  ADR_URL: "http://address-service:9001"
+  ORDER_URL: "http://taco-order-service:9004"
+  QUARKUS_HTTP_CORS_ORIGIN: "*"

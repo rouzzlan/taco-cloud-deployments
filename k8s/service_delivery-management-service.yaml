@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: delivery-management-service
+  labels:
+    app: delivery-management-service
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 32016
+      port: 9006
+      protocol: TCP
+      targetPort: 9006
+  selector:
+    app: delivery-management-service
