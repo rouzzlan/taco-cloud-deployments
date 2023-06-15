@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>981</x>
+      <y>63</y>
+      <w>198</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>endpoint
+--
+from: docker-pool
+to: docker-pool.739.net</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>225</x>
+      <y>0</y>
+      <w>1134</w>
+      <h>1224</h>
+    </coordinates>
+    <panel_attributes>k8s-a-master-node.739.net
+--
+bg=orange
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>612</x>
+      <y>171</y>
+      <w>297</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>address-service-deployment
+--
+harbour.739.net/taco-cloud/address-service
+port: 9001</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1017</x>
+      <y>153</y>
+      <w>180</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>config-address-service
+--
+DB_URL
+DATABASE
+PASSWD
+USER</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>198</y>
+      <w>135</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>315</x>
+      <y>162</y>
+      <w>180</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+address-service
+--
+nodePort: 32010
+port: 9001
+targetPort: 9001</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>207</y>
+      <w>144</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1017</x>
+      <y>270</y>
+      <w>180</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>config-address-service
+--
+DB_URL
+DATABASE
+PASSWD
+USER</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>612</x>
+      <y>288</y>
+      <w>315</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>cc-service-deployment
+--
+harbour.739.net/taco-cloud/cc-service-service
+port: 9002</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>315</x>
+      <y>288</y>
+      <w>180</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+cc-service
+--
+nodePort: 32011
+port: 9002
+targetPort: 9002</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>918</x>
+      <y>315</y>
+      <w>117</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>324</y>
+      <w>144</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1017</x>
+      <y>387</y>
+      <w>180</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>config-taco-order-service
+--
+DB_HOST
+DB_NAME
+DB_PORT
+DB_USR
+DB_PASSWD</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>612</x>
+      <y>405</y>
+      <w>315</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>taco-order-service-deployment
+--
+harbour.739.net/taco-cloud/taco-order-service
+port: 9004</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>315</x>
+      <y>405</y>
+      <w>180</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+taco-order-service
+--
+nodePort: 32012
+port: 9004
+targetPort: 9004</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>441</y>
+      <w>144</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>918</x>
+      <y>432</y>
+      <w>117</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1017</x>
+      <y>522</y>
+      <w>270</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>config-payment-management-service
+--
+CC_URL
+ORDER_URL
+QUARKUS_HTTP_CORS_ORIGIN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>567</x>
+      <y>531</y>
+      <w>396</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>payment-management-service-deployment
+--
+harbour.739.net/taco-cloud/payment-management-service
+port: 9005</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>315</x>
+      <y>531</y>
+      <w>216</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+payment-management-service
+--
+nodePort: 32015
+port: 9005
+targetPort: 9005</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>522</x>
+      <y>558</y>
+      <w>63</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>954</x>
+      <y>558</y>
+      <w>81</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>342</y>
+      <w>549</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;180.0;580.0;180.0;590.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>414</y>
+      <w>549</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;100.0;580.0;100.0;590.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1017</x>
+      <y>666</y>
+      <w>270</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>config-delivery-management-service
+--
+ADR_URL
+ORDER_URL
+QUARKUS_HTTP_CORS_ORIGIN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>567</x>
+      <y>666</y>
+      <w>387</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>delivery-management-service-deployment
+--
+harbour.739.net/taco-cloud/delivery-management-service
+port: 9006</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>702</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>513</x>
+      <y>702</y>
+      <w>72</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>306</x>
+      <y>666</y>
+      <w>216</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+delivery-management-service
+--
+nodePort: 32016
+port: 9006
+targetPort: 9006</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>144</y>
+      <w>549</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;30.0;40.0;10.0;560.0;10.0;560.0;540.0;590.0;580.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>486</y>
+      <w>549</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;560.0;10.0;560.0;160.0;590.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1017</x>
+      <y>801</y>
+      <w>216</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>config-order-sender-service
+--
+QHOST
+QPORT
+QPASSWD
+QUSR
+QNAME</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>594</x>
+      <y>819</y>
+      <w>315</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>order-sender-service-deployment
+--
+harbour.739.net/taco-cloud/order-sender
+port: 9003</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>846</y>
+      <w>135</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>855</y>
+      <w>126</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>306</x>
+      <y>810</y>
+      <w>189</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+order-sender-service
+--
+nodePort: 32017
+port: 9003
+targetPort: 9003</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1017</x>
+      <y>936</y>
+      <w>207</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>config-order-receiver-service
+--
+QHOST
+QPORT
+QPASSWD
+QUSR
+QNAME
+--
+DB_NAME
+DB_HOST
+DB_PORT
+DB_USR
+DB_PASSWD
+--
+ADDR_HOST
+CC_HOST</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>513</x>
+      <y>1017</y>
+      <w>315</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>order-receiver-service-deployment
+--
+harbour.739.net/taco-cloud/order-receiver</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>819</x>
+      <y>1044</y>
+      <w>216</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>220.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>198</y>
+      <w>765</w>
+      <h>801</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0;10.0;870.0;830.0;870.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>324</y>
+      <w>783</w>
+      <h>693</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0;10.0;750.0;850.0;750.0</additional_attributes>
+  </element>
+</diagram>
