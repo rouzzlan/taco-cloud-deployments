@@ -135,3 +135,51 @@ output
   }
 }
 ```
+
+## Order sender/receiver service
+
+the endpoint manifest [endpoint.yaml](../../endpoint.yaml) should be already be deployed</br>
+deployment manifest files
+
+### Order sender
+
+files:
+
+- [config_order-sender.yaml](../../config_order-sender.yaml)
+- [deployment_order-sender-service.yaml](../../deployment_order-sender-service.yaml)
+- [service_order-sender-service.yaml](../../service_order-sender-service.yaml)
+
+### Order receiver
+
+files
+- [config_order-receiver.yaml](../../config_order-receiver.yaml)
+- [deployment_order-receiver-service.yaml](../../deployment_order-receiver-service.yaml)
+
+### test
+
+verify orders. the [taco-order-service](#taco-order-service) has to be up.
+```sh
+curl http://k8s-a-master-node.739.net:32012/order
+```
+post order
+ 
+```sh
+curl -X POST http://k8s-a-master-node.739.net:32017/order/ \
+  -H 'Content-Type: application/json' \
+  -d '{"name":"myOrder","email":"me@home.com","address":{"street":"Kerkstraat 123","city":"Hoboken","zip":"1929","state":"Antwerp","country":"BE"},"cCard":{"number":"5364965554644555","owner":"Rouslan Khayaouri","expiration":"10/10","cvv":999}}'
+```
+
+response
+```json
+
+```
+verify if added
+```sh
+curl http://k8s-a-master-node.739.net:32012/order
+```
+output
+```json
+[{"id":"646e5921ba3cd06728e327f3","uuid":"83decfbc-4673-47f3-ba32-8c00bbbb0698","name":"myOrder","email":"me@home.com","addrRef":"755241ea8bb0d609107a640673292264ca451e550dd39dd5c9bbb86ec8a5895f","ccardRef":"90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285"},{"id":"648b4fcf52a414139e97d002","uuid":"5e827e32-ccfd-4427-9b40-602fcdbc5055","name":"myOrder","email":"me@home.com","addrRef":"755241ea8bb0d609107a640673292264ca451e550dd39dd5c9bbb86ec8a5895f","ccardRef":"90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285"}]
+```
+### notes
+somehow the first call does not work.

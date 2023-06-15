@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-order-sender-service
+data:
+  QHOST: "docker-pool"
+  QPORT: "5672"
+  QPASSWD: "pass"
+  QUSR: "user"
+  QNAME: "orderqueue"

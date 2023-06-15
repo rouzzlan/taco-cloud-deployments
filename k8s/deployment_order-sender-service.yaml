@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-sender-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: order-sender-service
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: order-sender-service
+    spec:
+      containers:
+        - name: order-sender-service
+          image: harbour.739.net/taco-cloud/order-sender:0.0.3-1
+          envFrom:
+            - configMapRef:
+                name: config-order-sender-service
+          ports:
+            - containerPort: 9003

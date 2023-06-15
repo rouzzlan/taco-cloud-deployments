@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-order-receiver-service
+data:
+  QHOST: "docker-pool"
+  QPORT: "5672"
+  QPASSWD: "pass"
+  QUSR: "user"
+  QNAME: "orderqueue"
+  DB_NAME: "OrderDB"
+  DB_HOST: "docker-pool"
+  DB_PORT: "27020"
+  DB_USR: "rouslan"
+  DB_PASSWD: "50m9FiD3"
+  ADDR_HOST: "http://address-service:9001/address"
+  CC_HOST: "http://cc-service:9002/creditcard"
