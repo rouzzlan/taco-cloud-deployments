@@ -171,7 +171,7 @@ curl -X POST http://k8s-a-master-node.739.net:32017/order/ \
 
 response
 ```json
-
+{"uuid":"76e4511a-7b32-44f8-a715-627ae2e19a63","name":"myOrder"}
 ```
 verify if added
 ```sh
@@ -179,7 +179,33 @@ curl http://k8s-a-master-node.739.net:32012/order
 ```
 output
 ```json
-[{"id":"646e5921ba3cd06728e327f3","uuid":"83decfbc-4673-47f3-ba32-8c00bbbb0698","name":"myOrder","email":"me@home.com","addrRef":"755241ea8bb0d609107a640673292264ca451e550dd39dd5c9bbb86ec8a5895f","ccardRef":"90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285"},{"id":"648b4fcf52a414139e97d002","uuid":"5e827e32-ccfd-4427-9b40-602fcdbc5055","name":"myOrder","email":"me@home.com","addrRef":"755241ea8bb0d609107a640673292264ca451e550dd39dd5c9bbb86ec8a5895f","ccardRef":"90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285"}]
+[
+  {
+    "id": "646e5921ba3cd06728e327f3",
+    "uuid": "83decfbc-4673-47f3-ba32-8c00bbbb0698",
+    "name": "myOrder",
+    "email": "me@home.com",
+    "addrRef": "755241ea8bb0d609107a640673292264ca451e550dd39dd5c9bbb86ec8a5895f",
+    "ccardRef": "90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285"
+  },
+  {
+    "id": "648b4fcf52a414139e97d002",
+    "uuid": "5e827e32-ccfd-4427-9b40-602fcdbc5055",
+    "name": "myOrder",
+    "email": "me@home.com",
+    "addrRef": "755241ea8bb0d609107a640673292264ca451e550dd39dd5c9bbb86ec8a5895f",
+    "ccardRef": "90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285"
+  },
+  {
+    "id": "648b50b652a414139e97d003",
+    "uuid": "76e4511a-7b32-44f8-a715-627ae2e19a63",
+    "name": "myOrder",
+    "email": "me@home.com",
+    "addrRef": "755241ea8bb0d609107a640673292264ca451e550dd39dd5c9bbb86ec8a5895f",
+    "ccardRef": "90144e63116d1be8455a9ff7ddbe480c92c791a298026d4c2bafa7d6388b6285"
+  }
+]
 ```
+3rd order has uuid `76e4511a-7b32-44f8-a715-627ae2e19a63`, so order added.
 ### notes
 somehow the first call does not work.
